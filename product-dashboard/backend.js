@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 let items = [];
-const instanceId = os.hostname();
+const instanceId = process.env.INSTANCE_ID || os.hostname(); // <- zmiana
 
 app.get('/items', (req, res) => res.json(items));
 
@@ -22,4 +22,4 @@ app.get('/stats', (req, res) => {
   });
 });
 
-app.listen(3000, () => console.log('Backend running'));
+app.listen(3000);
