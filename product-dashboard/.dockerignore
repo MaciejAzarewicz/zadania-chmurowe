@@ -1,0 +1,11 @@
+node_modules
+frontend/node_modules
+__tests__
+*.test.js
+.env
+.env.*
+*.log
+npm-debug.log*
+.git
+.gitignore
+backend.js

@@ -1,0 +1,16 @@
+node_modules
+__tests__
+*.test.js
+.env
+.env.*
+*.log
+npm-debug.log*
+.git
+.gitignore
+frontend/node_modules
+frontend/src
+frontend/app.js
+frontend/index.html
+frontend/vite.config.js
+!__tests__/
+!__tests__/**/*.js

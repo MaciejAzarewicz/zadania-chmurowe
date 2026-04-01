@@ -1,15 +1,37 @@
 FROM node:18-alpine AS deps
 
+ARG NODE_ENV=production
+
 WORKDIR /app
 COPY package.json ./
 RUN npm install --omit=dev
 
-FROM node:18-alpine AS production
+FROM node:18-alpine AS test
 
 WORKDIR /app
-ENV NODE_ENV=production
+COPY package.json ./
+RUN npm install
+COPY backend.js ./
+COPY __tests__ ./__tests__
+ENV NODE_ENV=test
+RUN npm test
+RUN echo "tests-passed" > /tmp/test-status
+
+FROM node:18-alpine AS production
+
+ARG BUILD_DATE
+ARG VERSION
+ARG NODE_ENV=production
+
+LABEL org.opencontainers.image.created=$BUILD_DATE
+LABEL org.opencontainers.image.version=$VERSION
+LABEL org.opencontainers.image.title="product-dashboard-backend"
+
+WORKDIR /app
+ENV NODE_ENV=$NODE_ENV
 
 COPY --from=deps /app/node_modules ./node_modules
+COPY --from=test /tmp/test-status /tmp/test-status
 COPY backend.js ./
 COPY package.json ./
 
