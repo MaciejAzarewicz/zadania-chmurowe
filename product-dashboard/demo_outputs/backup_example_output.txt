@@ -1,0 +1,3 @@
+$ bash backup.sh pgdata
+Creating backup of volume 'pgdata' -> /path/to/product-dashboard/backups/pgdata-20260418123045.tar.gz
+Backup saved: /path/to/product-dashboard/backups/pgdata-20260418123045.tar.gz

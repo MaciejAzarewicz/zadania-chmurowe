@@ -1,0 +1,15 @@
+Run dev (detached):
+$ bash run_dev.sh -d
+Started backend-dev in detached mode. Watch logs with: docker logs -f backend-dev
+
+Before change:
+$ curl -s http://localhost:3000/api/items
+[]
+
+# Edit server.js on host: change endpoint /items to return [{"demo":"v2"}] instead of []
+
+After change (no docker build):
+$ curl -s http://localhost:3000/api/items
+[{"demo":"v2"}]
+
+Nodemon inside the container detected the change and reloaded the process automatically.

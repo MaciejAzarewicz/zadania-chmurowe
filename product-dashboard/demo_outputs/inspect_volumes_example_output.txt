@@ -1,0 +1,12 @@
+ $ bash inspect_volumes.sh pgdata product-dashboard_dev_node_modules
+ Volume: pgdata
+   Mountpoint: /var/lib/docker/volumes/pgdata/_data
+   Size:  12M	/data
+   Used by containers:
+     - postgres
+
+ Volume: product-dashboard_dev_node_modules
+   Mountpoint: /var/lib/docker/volumes/product-dashboard_dev_node_modules/_data
+   Size:  5.0M	/data
+   Used by containers:
+     - backend-dev
