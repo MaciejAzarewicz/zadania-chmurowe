@@ -2,11 +2,13 @@
   "name": "product-dashboard-backend",
   "version": "1.0.0",
   "private": true,
-  "main": "backend.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node backend.js"
+    "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "pg": "^8.10.0",
+    "redis": "^4.6.7"
   }
 }
