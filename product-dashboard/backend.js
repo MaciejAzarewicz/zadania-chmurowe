@@ -12,6 +12,7 @@ function createApp() {
 
   app.use((req, res, next) => {
     requestCount += 1;
+    res.setHeader('X-Instance', instanceId);
     next();
   });
 
