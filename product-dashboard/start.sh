@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 cd "$(dirname "$0")"
+./stop.sh || true
 
 docker network create --driver bridge --subnet 172.28.10.0/24 --gateway 172.28.10.1 proxy-net || true
 docker network create --driver bridge --subnet 172.28.20.0/24 --gateway 172.28.20.1 app-net || true

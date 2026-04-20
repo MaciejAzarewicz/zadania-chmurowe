@@ -15,6 +15,18 @@ Checks to perform after start:
 - `docker exec nginx ping -c 3 postgres` should fail (nginx not on db-net).
 - `curl -I http://localhost/items` repeat to see alternating `X-Instance` header.
 
+Run automated verification after `./start.sh`:
+
+```sh
+./verify.sh
+```
+
+Run DNS demo separately:
+
+```sh
+./dns_demo.sh
+```
+
 DNS demo:
 
 Default bridge (no DNS):
